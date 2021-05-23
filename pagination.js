@@ -1,3 +1,4 @@
+//Creating skeletal of table using dom
 var Id;
 var check = "";
 var container = document.createElement("div");
@@ -64,6 +65,7 @@ table.append(thead);
 
 container.append(Header, table, div, div2);
 document.body.append(container);
+//function to fetch required json data 
 function Display(ID) {
   var req = new XMLHttpRequest();
   req.open(
@@ -75,6 +77,7 @@ function Display(ID) {
 
   req.onload = function () {
     var data = JSON.parse(this.response);
+    //Checking which button is pressed and displaying data accordingly
     if (ID == "b1") {
       check = 1;
       Row(0, 10);
@@ -144,7 +147,7 @@ for (j = 1; j <= 13; j++) {
     Display(e.target.id);
   });
 }
-
+//Creation of Row using form data
 function CreateRow(id, name, email) {
   row = document.createElement("tr");
   td1 = document.createElement("td");
